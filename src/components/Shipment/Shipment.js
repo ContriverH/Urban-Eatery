@@ -1,21 +1,21 @@
 import React, { useEffect } from "react";
 import "./Shipment.css";
-import * as firebase from "firebase/app";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import { useAuth } from "../SignUp/useAuth";
+import { useState } from "react";
+import firebase from "../firebase-config";
 
 const Shipment = (props) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
   const { toDoor, road, flat, businessName, address } = props.deliveryDetails;
-  const {orderID , deliveryDetails } = props.orderDetails ; 
-
+  const { orderID, deliveryDetails } = props.orderDetails;
+  const [userid, setuserid] = useState();
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data) => {
-    props.deliveryDetailsHandler(data);
+  const onSubmit = (register) => {
+    console.log(register);
+    props.deliveryDetailsHandler(register);
     console.log("submitted in database");
     onOrderComplete();
   };
@@ -30,24 +30,68 @@ const Shipment = (props) => {
   const tax = (subTotal / 100) * 5;
   const deliveryFee = totalQuantity && 40;
   const grandTotal = subTotal + tax + deliveryFee;
+  useEffect(() => {
+    const user = () => {
+      const user = firebase.auth().currentUser;
+      setuserid(user.uid);
+    };
+    user();
+  }, []);
 
-  const ordersRef = firebase.firestore().collection("/user");
-  function onOrderComplete() {
+  function handlePayment() {
+    props.paymentHandler(grandTotal);
+    props.clearCart();
+  }
 
-    ordersRef
+  async function onOrderComplete() {
+    const totalOrdersRef = await firebase.firestore().collection("orders");
+    const adminDataRef = await firebase
+      .firestore()
+      .collection("admin")
+      .doc("PXToN4KwoyUcMZFpFyCRBOQhvXj1");
+
+    const addressRef = await firebase
+      .firestore()
+      .collection("users")
+      .doc(userid);
+    const ordersRef = await firebase
+      .firestore()
+      .collection("users")
+      .doc(userid)
+      .collection("orders");
+
+    addressRef.update({
+      moneySpent: firebase.firestore.FieldValue.increment(grandTotal),
+      address: props.deliveryDetails,
+      orderCount: firebase.firestore.FieldValue.increment(1),
+    });
+
+    await adminDataRef.update({
+      totalSales: firebase.firestore.FieldValue.increment(grandTotal),
+      orderCount: firebase.firestore.FieldValue.increment(1),
+      productSalesCount: firebase.firestore.FieldValue.increment(totalQuantity),
+    });
+
+    await totalOrdersRef.add({
+      products: props.cart,
+      address: props.deliveryDetails,
+    });
+
+    await ordersRef
       .add({
-        deliveryDetails : props.deliveryDetails, 
+        products: props.cart,
+        address: props.deliveryDetails,
       })
       .then(function (docRef) {
         props.setorderDetailsHandler({
-          deliveryDetails : props.deliveryDetails, 
-          orderID : docRef.id 
-        })
-        // orderID = docRef.id ; 
-        console.log("ID: ", docRef.id);
+          deliveryDetails: props.deliveryDetails,
+          orderID: docRef.id,
+        });
+
+        console.log("Tutorial created with ID: ", docRef.id);
       })
       .catch(function (error) {
-        console.error("Error: ", error);
+        console.error("Error adding Tutorial: ", error);
       });
   }
 
@@ -106,6 +150,18 @@ const Shipment = (props) => {
               />
               {errors.businessName && (
                 <span className="error">Business name is required</span>
+              )}
+            </div>
+
+            <div className="form-group">
+              <input
+                name="phoneNumber"
+                className="form-control"
+                ref={register({ required: true })}
+                placeholder="Phone Number"
+              />
+              {errors.phoneNumber && (
+                <span className="error">Phone Number is required</span>
               )}
             </div>
 
@@ -215,14 +271,14 @@ const Shipment = (props) => {
 
             {totalQuantity ? (
               toDoor && road && flat && businessName && address ? (
-                <Link to= 
-                {{
-                    pathname : "/order-complete", 
-                    state : orderID  
-                }}
-                    >
+                <Link
+                  to={{
+                    pathname: "/payment",
+                    state: orderID,
+                  }}
+                >
                   <button
-                    onClick={() => props.clearCart()}
+                    onClick={handlePayment}
                     className="btn btn-block btn-danger"
                   >
                     Check Out Your Food
