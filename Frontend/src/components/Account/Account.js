@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./../Foods/Foods.css";
 import firebase from "../firebase-config";
+import { Link } from "react-router-dom";
 import "./account.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTruck, faHeart } from "@fortawesome/free-solid-svg-icons";
@@ -39,9 +40,12 @@ const Account = (props) => {
                     width="130"
                     class="rounded mb-2 img-thumbnail"
                   />
-                  <a href="/pastorder" class="btn btn-dark btn-sm btn-block">
-                    My Orders
-                  </a>
+
+                  <Link to="/pastorder">
+                    <a href="#" class="btn btn-dark btn-sm btn-block">
+                      My Orders
+                    </a>
+                  </Link>
                 </div>
                 <div class="media-body mb-5 text-white">
                   <h4 class="mt-0 mb-0">{name}</h4>
