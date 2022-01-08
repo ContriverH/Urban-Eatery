@@ -95,6 +95,18 @@ export default function ProductForm() {
           name="img"
           ref={register}
           placeholder=""
+          required="true"
+        />
+      </div>
+      <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input
+          type="text"
+          class="form-control"
+          id="quantity"
+          name="quantity"
+          ref={register}
+          placeholder="1"
         />
       </div>
       <div class="form-group">

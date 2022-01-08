@@ -12,10 +12,10 @@
 
 | Name                | Roll Number  |
 | ------------------- | ------------ |
-| Yash Shukla         | S20190010198 |
 | Himanshu Pal        | S20190010064 |
-| Abhishek Jain       | S20190010003 |
 | Nishchay Verma      | S20190010128 |
+| Yash Shukla         | S20190010198 |
+| Abhishek Jain       | S20190010003 |
 | Praveen Kumar Reddy | S20190010149 |
 
 ### [Live Demo](https://foodie-eb5cd.web.app)

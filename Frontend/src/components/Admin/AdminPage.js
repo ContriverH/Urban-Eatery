@@ -2,11 +2,14 @@ import React from "react";
 import ProductForm from "../Form/ProductForm";
 import RestaurantForm from "../Form/restaurentForm";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./admin.css";
 import RestaurantAdminList from "../ResturantAdminList/RestaurantAdminList";
 import ProductAdminList from "../ProductAdmin/productAdminlist";
 import OrdersList from "../OrdersAdmin/OrdersList";
 import Dashboard from "../Dashboard/Dashboard";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 export default function AdminPage() {
   const [currentComponent, setcurrentComponent] = useState("Dashboard");
@@ -121,7 +124,16 @@ export default function AdminPage() {
           <div class="header__date">
             <span id="date"></span>
           </div>
-          <div class="header__user">Urban Eatery</div>
+          <Link style={{ color: "white" }} to="/">
+            <div class="header__user">
+              <FontAwesomeIcon
+                style={{ margin: "1rem" }}
+                color="white"
+                icon={faHome}
+              />{" "}
+              Urban Eatery
+            </div>
+          </Link>
         </div>
 
         <div class="content">

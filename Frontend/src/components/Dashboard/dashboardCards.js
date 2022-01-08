@@ -24,8 +24,8 @@ export default function DashBoardCards() {
 
   return (
     <div>
-      <div class="cards">
-        <div class=" cardss [ is-collapsed ] ">
+      <div class="cards shadow-lg p-3 mb-5 bg-white rounded">
+        <div class=" cardss [ is-collapsed ] shadow-lg p-3 mb-5 bg-white rounded ">
           <div class="card__inner [ js-expander ]">
             <span>
               {" "}
@@ -35,7 +35,7 @@ export default function DashBoardCards() {
           </div>
           <div class="card__expander">Total Orders</div>
         </div>
-        <div class=" cardss [ is-collapsed ] ">
+        <div class=" cardss [ is-collapsed ] shadow-lg p-3 mb-5 bg-white rounded">
           <div class="card__inner [ js-expander ]">
             <span>
               {" "}
@@ -45,7 +45,7 @@ export default function DashBoardCards() {
           </div>
           <div class="card__expander">Total Sales</div>
         </div>
-        <div class=" cardss [ is-collapsed ] ">
+        <div class=" cardss [ is-collapsed ] shadow-lg p-3 mb-5 bg-white rounded">
           <div class="card__inner [ js-expander ]">
             <span>
               <h1> 7</h1>
@@ -55,7 +55,7 @@ export default function DashBoardCards() {
           <div class="card__expander">Restaurants</div>
         </div>
 
-        <div class=" cardss [ is-collapsed ] ">
+        <div class=" cardss [ is-collapsed ] shadow-lg p-3 mb-5 bg-white rounded">
           <div class="card__inner [ js-expander ]">
             <span>
               <h1>{qty}</h1>
@@ -65,17 +65,17 @@ export default function DashBoardCards() {
           <div class="card__expander">Items Sold</div>
         </div>
 
-        <div class=" cardss [ is-collapsed ] ">
+        <div class=" cardss [ is-collapsed ] shadow-lg p-3 mb-5 bg-white rounded">
           <div class="card__inner [ js-expander ]">
             <span>
-              <h1>{profit} (8)%</h1>
+              <h1>{profit}</h1>
             </span>
             <i class="fa fa-folder-o"></i>
           </div>
-          <div class="card__expander">Profit %</div>
+          <div class="card__expander">Profit 8%</div>
         </div>
 
-        <div class=" cardss [ is-collapsed ] ">
+        <div class=" cardss [ is-collapsed ] shadow-lg p-3 mb-5 bg-white rounded">
           <div class="card__inner [ js-expander ]">
             <span>
               <h1>{"45"}</h1>
