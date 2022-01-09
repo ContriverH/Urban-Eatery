@@ -10,6 +10,7 @@ const Account = (props) => {
   const [email, setemail] = useState();
   const [name, setname] = useState();
   const [image, setimage] = useState("");
+  const [uid, setuid] = useState("")
   const [deliverydetails, setdeliverydetails] = useState("");
 
   useEffect(() => {
@@ -20,6 +21,7 @@ const Account = (props) => {
         setimage(user.photoURL);
         setname(user.displayName);
         setemail(user.email);
+        setuid(user.uid)
       }
     };
     user();
@@ -48,7 +50,10 @@ const Account = (props) => {
                   </Link>
                 </div>
                 <div class="media-body mb-5 text-white">
-                  <h4 class="mt-0 mb-0">{name}</h4>
+                  <h4 class="mt-0 mb-0">
+                    
+                    {name} { uid === "PXToN4KwoyUcMZFpFyCRBOQhvXj1" ? "(admin)" : <div/>}
+                    </h4>
                   <p class="small mb-4">
                     {" "}
                     <i class="fa fa-map-marker mr-2"></i>
