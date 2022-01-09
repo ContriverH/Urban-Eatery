@@ -17,7 +17,7 @@ const Footer = () => {
           <div className="col-md-3">
             <ul className="list-unstyled">
               <li>
-                <Link to="/about">About Online Food</Link>
+                <Link to="#">About Online Food</Link>
               </li>
               <li>
                 <Link to="/blog">Read Our Blog</Link>
@@ -45,7 +45,7 @@ const Footer = () => {
                 <Link to="/restaurants">Restaurants near me</Link>
               </li>
               <li>
-                {uid === "ARBGjyWQAfQr9SNjQGmHb3k9C8n1" ? (
+                {uid === process.env.REACT_APP_BASE_URL ? (
                   <Link to="/admin">Admin Page</Link>
                 ) : (
                   <div />

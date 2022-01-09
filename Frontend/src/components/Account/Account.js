@@ -53,7 +53,7 @@ const Account = (props) => {
                 <div class="media-body mb-5 text-white">
                   <h4 class="mt-0 mb-0">
                     {name}{" "}
-                    {uid === "ARBGjyWQAfQr9SNjQGmHb3k9C8n1" ? (
+                    {uid === process.env.REACT_APP_BASE_URL ? (
                       "(admin)"
                     ) : (
                       <div />

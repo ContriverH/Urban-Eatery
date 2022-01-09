@@ -43,7 +43,7 @@ export const AdminRoute = ({ children, ...rest }) => {
     <Route
       {...rest}
       render={({ location }) =>
-        user.user && user.user.uid === "ARBGjyWQAfQr9SNjQGmHb3k9C8n1" ? (
+        user.user && user.user.uid === process.env.REACT_APP_BASE_URL ? (
           children
         ) : (
           <Redirect
