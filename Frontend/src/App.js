@@ -19,7 +19,7 @@ import Restaurent from "./components/Restaurant/Resturant";
 import PastOrder from "./components/PastOrder/FoodsPastOrder";
 import StripeComponent from "./components/StripePayment/StripeComponent";
 import Admin from "./components/Admin/AdminPage";
-
+import { AdminRoute } from "./components/SignUp/useAuth";
 function App() {
   const [cart, setCart] = useState([]);
   const [grandTotal, setGrandTotal] = useState(0);
@@ -135,26 +135,28 @@ function App() {
           <Route path="/explore">
             <Header cart={cart} />
             <Restaurent cart={cart} />
+            <Footer />
           </Route>
 
           <PrivateRoute path="/account">
             <Header cart={cart} />
             <Account />
+            <Footer />
           </PrivateRoute>
 
-          <Route exact path="/pastOrder">
+          <PrivateRoute exact path="/pastOrder">
             <Header cart={cart} />
             <PastOrder cart={cart} orderDetails={orderDetails} />
             <Footer />
-          </Route>
+          </PrivateRoute>
 
-          <Route path="/payment">
+          <PrivateRoute path="/payment">
             <StripeComponent grandTotal={grandTotal} />
-          </Route>
+          </PrivateRoute>
 
-          <Route path="/admin">
+          <AdminRoute path="/admin">
             <Admin />
-          </Route>
+          </AdminRoute>
 
           <Route path="*">
             <NotFound />

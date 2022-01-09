@@ -37,6 +37,27 @@ export const PrivateRoute = ({ children, ...rest }) => {
   );
 };
 
+export const AdminRoute = ({ children, ...rest }) => {
+  const user = useAuth();
+  return (
+    <Route
+      {...rest}
+      render={({ location }) =>
+        user.user && user.user.uid === "ARBGjyWQAfQr9SNjQGmHb3k9C8n1" ? (
+          children
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/signup",
+              state: { from: location },
+            }}
+          />
+        )
+      }
+    />
+  );
+};
+
 const getUser = (user) => {
   const { email, displayName, photoURL } = user;
   return { email, name: displayName, photo: photoURL };

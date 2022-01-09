@@ -5,7 +5,7 @@ import "./restaurantListTile.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
-export default function RestaurantAdminList() {
+export default function RestaurantAdminList(props) {
   // getting restaurant list from database
   const config = {
     headers: {
@@ -30,6 +30,24 @@ export default function RestaurantAdminList() {
     };
     fetchdata();
   }, []);
+
+  const handleDelete = (data) => {
+    console.log(data);
+    const id = data._id;
+
+    // get all data of same and pass to the edit.
+    const url = "http://localhost:3001/api/v1/restaurant/deleteRestaurant";
+    axios.post(url, { id: id }).then((res) => {
+      console.log(res);
+      if (res.status == 200) {
+        console.log("Successfully deleted");
+        props.setcurrentComponent("Restaurant");
+      }
+      if (res.status == 400) {
+        console.log("Cant Delete.... ");
+      }
+    });
+  };
 
   return (
     <div>
@@ -56,6 +74,9 @@ export default function RestaurantAdminList() {
                       <button type="button" class="btn btn-outline-primary m-3">
                         <FontAwesomeIcon
                           className="edit-icon"
+                          onClick={() =>
+                            props.setcurrentComponent("Add Restaurant")
+                          }
                           size="2x"
                           // color="blue"
                           icon={faEdit}

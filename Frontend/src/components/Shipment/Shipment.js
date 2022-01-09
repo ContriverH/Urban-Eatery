@@ -48,7 +48,7 @@ const Shipment = (props) => {
     const adminDataRef = await firebase
       .firestore()
       .collection("admin")
-      .doc("PXToN4KwoyUcMZFpFyCRBOQhvXj1");
+      .doc("ARBGjyWQAfQr9SNjQGmHb3k9C8n1");
 
     const addressRef = await firebase
       .firestore()
