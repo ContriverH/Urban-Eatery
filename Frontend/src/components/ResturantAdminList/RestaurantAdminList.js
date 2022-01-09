@@ -5,7 +5,7 @@ import "./restaurantListTile.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
-export default function RestaurantAdminList() {
+export default function RestaurantAdminList(props) {
   // getting restaurant list from database
   const config = {
     headers: {
@@ -56,6 +56,7 @@ export default function RestaurantAdminList() {
                       <div className="p-3 shadow bg-white circle">
                         <FontAwesomeIcon
                           className="edit-icon"
+                          onClick={()=> props.setcurrentComponent("Add Restaurant")}
                           size="2x"
                           color="blue"
                           icon={faEdit}

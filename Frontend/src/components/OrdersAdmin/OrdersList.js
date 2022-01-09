@@ -48,6 +48,7 @@ export default function OrdersList() {
                     <div class="horizontal-card-btn-container d-flex justify-content-center align-items-center">
                       <div className="p-3 shadow bg-white circle">
                         <FontAwesomeIcon
+                          // onClick={()=> props.setcurrentComponent("S")}
                           className="edit-icon"
                           size="2x"
                           color="blue"

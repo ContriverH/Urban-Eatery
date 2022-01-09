@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import Logo from "../../images/logo2.png";
 import "./SignUp.css";
 import { useAuth } from "./useAuth";
@@ -82,6 +82,7 @@ const SignUp = () => {
                 Create a new Account
               </label>
             </div>
+           
           </form>
         ) : (
           <form onSubmit={handleSubmit(onSubmit)} className="py-5">

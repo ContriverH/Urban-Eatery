@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
-export default function ProductAdminList() {
+export default function ProductAdminList(props) {
   const config = {
     headers: {
       "Access-Control-Allow-Origin": "*",
@@ -32,6 +33,11 @@ export default function ProductAdminList() {
 
   console.log(list);
 
+  const handleEdit = (data)=>{
+      // get all data of same and pass to the edit. 
+            
+  }
+
   return (
     <div>
       {list.map((restaurant, index) => {
@@ -57,6 +63,8 @@ export default function ProductAdminList() {
                       <div className="p-3 shadow bg-white circle">
                         <FontAwesomeIcon
                           className="edit-icon"
+                          onClick={()=> props.setcurrentComponent("Add Products")}
+                      
                           size="2x"
                           color="blue"
                           icon={faEdit}
