@@ -17,7 +17,7 @@ export default function DashBoardCards() {
       const data = res.data();
       setOrderQty(data.orderCount);
       setQty(data.productSalesCount);
-      setSales(data.totalSales);
+      setSales(data.totalSales.toFixed(2));
       setProfit((data.totalSales * 0.08).toFixed(2));
     });
   }, []);
@@ -39,7 +39,7 @@ export default function DashBoardCards() {
           <div class="card__inner [ js-expander ]">
             <span>
               {" "}
-              <h1>₹{sales}</h1>
+              <h1>₹ {sales}</h1>
             </span>
             <i class="fa fa-folder-o"></i>
           </div>
@@ -68,7 +68,7 @@ export default function DashBoardCards() {
         <div class=" cardss [ is-collapsed ] shadow-lg p-3 mb-5 bg-white rounded">
           <div class="card__inner [ js-expander ]">
             <span>
-              <h1>{profit}</h1>
+              <h1>₹ {profit}</h1>
             </span>
             <i class="fa fa-folder-o"></i>
           </div>

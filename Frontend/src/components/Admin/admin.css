@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
+
 ul,
 ol {
   list-style: none inside;
@@ -18,26 +20,35 @@ a:visited {
 }
 .sidebar__sections {
   background-color: white;
-  width: 100px;
+  width: 6rem;
   position: fixed;
   height: 100%;
 }
-.sidebar__sections ul li a,
-.sidebar__sections ul li a:visited {
+.sidebar__sections ul {
+  margin-top: 9.3rem;
+}
+
+.sidebar__sections ul li {
+  width: 100%;
+  height: 10vh;
+  margin: 4rem 0 4rem 0;
+}
+
+.sidebar__sections ul li a {
+  font-size: 1rem;
+  font-weight: 500;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100px;
-  align-items: center;
-  justify-content: center;
   text-decoration: none;
   transition: all 0.4s;
-  font-size: 12px;
-  color: #1b2327;
+  color: #009fee;
+  font-family: "Dancing Script", cursive;
 }
 .sidebar__sections ul li a:hover {
-  background-color: #e7e7e7;
+  font-size: 0.8rem;
+  color: #ff7b00;
 }
+
 .sidebar__sections .icon {
   margin-bottom: 0.5rem;
 }

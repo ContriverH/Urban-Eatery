@@ -7,7 +7,7 @@ export default function Dashboard() {
     <div>
       <DashBoardCards />
       <div></div>
-      <h3> Current Orders</h3>
+      <h3 className="current-order">Current Orders</h3>
       <div></div>
       <OrdersList />
     </div>

@@ -127,7 +127,7 @@ export default function AdminPage() {
           <Link style={{ color: "white" }} to="/">
             <div class="header__user">
               <FontAwesomeIcon
-                style={{ margin: "1rem" }}
+                style={{ margin: "0.7rem" }}
                 color="white"
                 icon={faHome}
               />{" "}

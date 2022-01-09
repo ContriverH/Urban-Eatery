@@ -59,49 +59,10 @@ export default function RestaurantForm() {
           placeholder="+91"
         />
       </div>
-      <button type="button btn-lg" class="btn btn-outline-success">
+      <button type="button btn-lg" class="btn btn-outline-warning">
         Add Restaurant
       </button>
       {submitted == true ? <h2>Successfully Added</h2> : <div />}
     </form>
-    //   <div className="product-form">
-    //       <form onSubmit={handleSubmit(onSubmit)}>
-    //       <div className="field__group">
-    //         <label>Name</label>
-    //         <input
-    //          type="text"
-    //          name="name"
-    //          ref={register({required: true})}
-    //          placeholder="Name"
-    //         />
-    //       </div>
-
-    //       <div className="field__group">
-    //         <label>Address</label>
-    //         <input type="text"
-    //                name="address"
-    //                ref={register({required: true})}
-    //                placeholder="Address"
-    //         />
-    //       </div>
-
-    //       <div className="field__group">
-    //         <label>Phone Numer</label>
-    //         <input type="text"
-    //                name="phoneNumber"
-    //                ref={register({required: true})}
-    //                placeholder="Phone Number"
-    //         />
-    //       </div>
-
-    //       <div className="form-group">
-    //         <button className="btn btn-danger btn-block" type="submit">
-    //           Add Restaurant
-    //         </button>
-    //       </div>
-
-    //       {submitted == true ? "Successfully Added" : <div/>}
-    //     </form>
-    //  </div>
   );
 }

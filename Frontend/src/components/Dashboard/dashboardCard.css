@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500&display=swap");
+
 .cards {
   padding: 15px;
   display: flex;
@@ -44,4 +46,11 @@
   text-transform: uppercase;
   color: #eceef1;
   font-size: 1.5em;
+}
+
+.current-order {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 3rem;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
 }

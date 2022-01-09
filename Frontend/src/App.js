@@ -152,9 +152,9 @@ function App() {
             <StripeComponent grandTotal={grandTotal} />
           </Route>
 
-          <PrivateRoute path="/admin">
+          <Route path="/admin">
             <Admin />
-          </PrivateRoute>
+          </Route>
 
           <Route path="*">
             <NotFound />

@@ -32,7 +32,7 @@ export default function OrdersList() {
                     <div class="horizontal-card-bg-img">
                       <img className="card-img" src={orders.products[0].img} />
                     </div>
-                    <div class="flex-fill">
+                    <div class="flex-fill ml-5">
                       <div class="card-body">
                         <div class="font-weight-bold mt-3">
                           {orders.products[0].name}
