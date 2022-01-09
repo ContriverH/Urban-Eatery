@@ -66,12 +66,6 @@ const Shipment = (props) => {
       orderCount: firebase.firestore.FieldValue.increment(1),
     });
 
-    await adminDataRef.update({
-      totalSales: firebase.firestore.FieldValue.increment(grandTotal),
-      orderCount: firebase.firestore.FieldValue.increment(1),
-      productSalesCount: firebase.firestore.FieldValue.increment(totalQuantity),
-    });
-
     await totalOrdersRef.add({
       products: props.cart,
       address: props.deliveryDetails,

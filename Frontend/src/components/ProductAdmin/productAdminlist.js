@@ -12,7 +12,7 @@ export default function ProductAdminList(props) {
       "Content-Type": "application/json",
     },
   };
-  const baseurl = "http://localhost:3001/api/v1/food/getAllFoods";
+  const baseurl = "https://urban-eatery.herokuapp.com/api/v1/food/getAllFoods";
   const [list, setlist] = useState([]);
   useEffect(() => {
     console.log("started searching");
@@ -33,10 +33,18 @@ export default function ProductAdminList(props) {
 
   console.log(list);
 
-  const handleEdit = (data)=>{
-      // get all data of same and pass to the edit. 
-            
-  }
+  const handleDelete = (data) => {
+    const id = data._id;
+    const url = `https://urban-eatery.herokuapp.com/api/v1/food/deleteItem/${id}`;
+    axios.delete(url, { id: id }).then((res) => {
+      if (res.status == 200) {
+        props.setcurrentComponent("Dashboard");
+      }
+      if (res.status == 400) {
+        console.log("Cant Delete.... ");
+      }
+    });
+  };
 
   return (
     <div>
@@ -60,24 +68,29 @@ export default function ProductAdminList(props) {
                       </div>
                     </div>
                     <div class="horizontal-card-btn-container d-flex justify-content-center align-items-center">
-                      <div className="p-3 shadow bg-white circle">
+                      <button type="button" class="btn btn-outline-primary m-3">
                         <FontAwesomeIcon
                           className="edit-icon"
-                          onClick={()=> props.setcurrentComponent("Add Products")}
-                      
+                          onClick={() =>
+                            props.setcurrentComponent("Add Product")
+                          }
                           size="2x"
-                          color="blue"
+                          // color="blue"
                           icon={faEdit}
                         />
-                      </div>
-                      <div className="p-3 ml-4 mr-2 shadow bg-white circle">
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleDelete(restaurant)}
+                        class="btn btn-outline-danger m-3"
+                      >
                         <FontAwesomeIcon
                           className="delete-icon"
                           size="2x"
-                          color="red"
+                          // color="red"
                           icon={faTrashAlt}
                         />
-                      </div>
+                      </button>
                     </div>
                   </div>
                 </div>

@@ -46,23 +46,26 @@ export default function OrdersList() {
                       </div>
                     </div>
                     <div class="horizontal-card-btn-container d-flex justify-content-center align-items-center">
-                      <div className="p-3 shadow bg-white circle">
+                      {/* <button type="button" class="btn btn-outline-primary m-3">
                         <FontAwesomeIcon
-                          // onClick={()=> props.setcurrentComponent("S")}
                           className="edit-icon"
                           size="2x"
-                          color="blue"
+                          // color="blue"
                           icon={faEdit}
                         />
-                      </div>
-                      <div className="p-3 ml-4 mr-2 shadow bg-white circle">
+                      </button>
+                      <button
+                        type="button"
+                        // onClick={() => handleDelete(restaurant)}
+                        class="btn btn-outline-danger m-3"
+                      >
                         <FontAwesomeIcon
                           className="delete-icon"
                           size="2x"
-                          color="red"
+                          // color="red"
                           icon={faTrashAlt}
                         />
-                      </div>
+                      </button> */}
                     </div>
                   </div>
                 </div>

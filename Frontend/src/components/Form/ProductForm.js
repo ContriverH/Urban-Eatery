@@ -14,7 +14,8 @@ export default function ProductForm() {
       "Content-Type": "application/json",
     },
   };
-  const baseurl = "http://localhost:3001/api/v1/restaurant/getAllRestaurant";
+  const baseurl =
+    "https://urban-eatery.herokuapp.com/api/v1/restaurant/getAllRestaurant";
   const [restaurantList, setlist] = useState([]);
   useEffect(() => {
     const fetchdata = async () => {
@@ -35,7 +36,7 @@ export default function ProductForm() {
   const { register, handleSubmit, watch, errors } = useForm();
   const [submitted, setsubmitted] = useState(false);
   const onSubmit = (register) => {
-    const url = "http://localhost:3001/api/v1/food/createItem";
+    const url = "https://urban-eatery.herokuapp.com/api/v1/food/createItem";
     axios
       .post(url, register)
       .then((res) => {

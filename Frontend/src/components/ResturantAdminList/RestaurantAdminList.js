@@ -13,7 +13,8 @@ export default function RestaurantAdminList(props) {
       "Content-Type": "application/json",
     },
   };
-  const baseurl = "http://localhost:3001/api/v1/restaurant/getAllRestaurant";
+  const baseurl =
+    "https://urban-eatery.herokuapp.com/api/v1/restaurant/getAllRestaurant";
   const [list, setlist] = useState([]);
   useEffect(() => {
     console.log("started searching");
@@ -34,14 +35,12 @@ export default function RestaurantAdminList(props) {
   const handleDelete = (data) => {
     console.log(data);
     const id = data._id;
-
-    // get all data of same and pass to the edit.
-    const url = "http://localhost:3001/api/v1/restaurant/deleteRestaurant";
-    axios.post(url, { id: id }).then((res) => {
+    const url = `https://urban-eatery.herokuapp.com/api/v1/restaurant/deleteRestaurant/${id}`;
+    axios.delete(url, { id: id }).then((res) => {
       console.log(res);
-      if (res.status == 200) {
+      if (res.status == 204) {
         console.log("Successfully deleted");
-        props.setcurrentComponent("Restaurant");
+        props.setcurrentComponent("Dashboard");
       }
       if (res.status == 400) {
         console.log("Cant Delete.... ");
@@ -82,7 +81,11 @@ export default function RestaurantAdminList(props) {
                           icon={faEdit}
                         />
                       </button>
-                      <button type="button" class="btn btn-outline-danger m-3">
+                      <button
+                        type="button"
+                        onClick={() => handleDelete(restaurant)}
+                        class="btn btn-outline-danger m-3"
+                      >
                         <FontAwesomeIcon
                           className="delete-icon"
                           size="2x"

@@ -42,7 +42,7 @@ exports.getRestaurantById = async (req, res) => {
 };
 
 exports.getAllRestaurant = async (req, res) => {
-  res.set('Access-Control-Allow-Origin', '*');
+  res.set("Access-Control-Allow-Origin", "*");
   try {
     const result = await Restaurant.find();
 
@@ -89,7 +89,7 @@ exports.updateRestaurant = async (req, res) => {
 
 exports.deleteRestaurant = async (req, res) => {
   try {
-    const result = await Restaurant.findByIdAndDelete(req.params.id);
+    const result = await Restaurant.findByIdAndDelete(req.body.id);
 
     if (!result) {
       return res.status(404).json({
@@ -98,8 +98,8 @@ exports.deleteRestaurant = async (req, res) => {
       });
     }
 
-    res.status(204).json({
-      status: "success",
+    res.status(201).json({
+      message: "success",
     });
   } catch (err) {
     return res.status(400).json({

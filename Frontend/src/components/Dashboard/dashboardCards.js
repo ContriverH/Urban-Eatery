@@ -1,8 +1,16 @@
+import axios from "axios";
 import firebase from "firebase";
 import React, { useEffect, useState } from "react";
 import "./dashboardCard.css";
 
 export default function DashBoardCards() {
+  const config = {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "application/json",
+    },
+  };
+
   const adminRef = firebase
     .firestore()
     .collection("admin")
@@ -11,8 +19,23 @@ export default function DashBoardCards() {
   const [sales, setSales] = useState(0);
   const [qty, setQty] = useState(0);
   const [profit, setProfit] = useState(0);
+  const [restaurant, setrestaurant] = useState(0);
 
+  const baseurl =
+    "https://urban-eatery.herokuapp.com/api/v1/restaurant/getAllRestaurant  ";
   useEffect(() => {
+    const fetchdata = async () => {
+      await axios
+        .get(baseurl, config)
+        .then((res) => {
+          setrestaurant(res.data.data.length);
+        })
+        .catch((errr) => {
+          console.log(errr);
+        });
+    };
+    fetchdata();
+
     adminRef.get().then((res) => {
       const data = res.data();
       setOrderQty(data.orderCount);
@@ -48,7 +71,7 @@ export default function DashBoardCards() {
         <div class=" cardss [ is-collapsed ] shadow-lg p-3 mb-5 bg-white rounded">
           <div class="card__inner [ js-expander ]">
             <span>
-              <h1> 7</h1>
+              <h1>{restaurant}</h1>
             </span>
             <i class="fa fa-folder-o"></i>
           </div>
@@ -78,7 +101,7 @@ export default function DashBoardCards() {
         <div class=" cardss [ is-collapsed ] shadow-lg p-3 mb-5 bg-white rounded">
           <div class="card__inner [ js-expander ]">
             <span>
-              <h1>{"45"}</h1>
+              <h1>8</h1>
             </span>
             <i class="fa fa-folder-o"></i>
           </div>
