@@ -48,3 +48,5 @@ npm start
 | Yash Shukla         | S20190010198 |
 | Abhishek Jain       | S20190010003 |
 | Praveen Kumar Reddy | S20190010149 |
+
+                            **Copyright © 2022 Urban Eatery. Proudly created by with ❤️**
