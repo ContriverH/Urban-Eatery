@@ -64,4 +64,4 @@ REACT_APP_BASE_URL = "83Rvm1KbI2RniLFxI8VZM56Zrou2";
 | Abhishek Jain       | S20190010003 |
 | Praveen Kumar Reddy | S20190010149 |
 
-                            **Copyright © 2022 Urban Eatery. Proudly created by with ❤️**
+                               Copyright © 2022 Urban Eatery. Proudly created with ❤️
