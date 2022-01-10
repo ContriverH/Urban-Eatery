@@ -48,7 +48,13 @@ const Shipment = (props) => {
     const adminDataRef = await firebase
       .firestore()
       .collection("admin")
-      .doc(process.env.REACT_APP_BASE_URL);
+      .doc("PXToN4KwoyUcMZFpFyCRBOQhvXj1");
+
+    adminDataRef.update({
+      totalSales: firebase.firestore.FieldValue.increment(grandTotal),
+      orderCount: firebase.firestore.FieldValue.increment(1),
+      productSalesCount: firebase.firestore.FieldValue.increment(totalQuantity),
+    });
 
     const addressRef = await firebase
       .firestore()
