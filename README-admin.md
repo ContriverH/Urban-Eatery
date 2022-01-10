@@ -35,6 +35,21 @@ npm install
 npm start
 ```
 
+# Admin access
+
+```jsx
+Email   : admin@admin.com
+Password: password
+```
+
+For the local environment, make a **.env** file in the **Frontend** folder and write:
+
+```jsx
+REACT_APP_BASE_URL = "83Rvm1KbI2RniLFxI8VZM56Zrou2";
+```
+
+**Or,** In order to make yourself as admin, change the value of REACT_APP_BASE_URL with the firebase **[uid](https://firebase.google.com/docs/auth/web/manage-users)**.
+
 # Live website
 
 [https://foodie-eb5cd.web.app/](https://foodie-eb5cd.web.app/)
