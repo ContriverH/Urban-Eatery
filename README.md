@@ -35,6 +35,10 @@ npm install
 npm start
 ```
 
+# Live website
+
+[https://foodie-eb5cd.web.app/](https://foodie-eb5cd.web.app/)
+
 # Contributors ( Group Number 3 )
 
 | Name                | Roll Number  |
@@ -44,14 +48,3 @@ npm start
 | Abhishek Jain       | S20190010003 |
 | Nishchay Verma      | S20190010128 |
 | Praveen Kumar Reddy | S20190010149 |
-
-<small className="text-secondary">
-    Copyright &copy; 2021 Urban Eatery. Proudly created by Technon Group (Group 3)
-    <span role="img">❤️</span>
-    <span>
-      <a
-        className="text-color"
-        href="https://github.com/Contriver/Urban-Eatery"
-      ></a>
-    </span>
-  </small>
