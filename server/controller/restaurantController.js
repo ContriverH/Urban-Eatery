@@ -44,7 +44,9 @@ exports.getRestaurantById = async (req, res) => {
 exports.getAllRestaurant = async (req, res) => {
   res.set("Access-Control-Allow-Origin", "*");
   try {
-    const result = await Restaurant.find();
+    const limitValue = req.query.limitValue || 20;
+    const skipValue = req.query.skipValue || 0;
+    const result = await Restaurant.find().limit(limitValue).skip(skipValue);
 
     res.status(200).json({
       status: "success",
@@ -111,10 +113,12 @@ exports.deleteRestaurant = async (req, res) => {
 
 exports.displayRestaurantFood = async (req, res) => {
   try {
-    const result = await Restaurant.findById(req.params.id).populate(
-      "restaurantFoods",
-      "name category description story"
-    );
+    const limitValue = req.query.limitValue || 20;
+    const skipValue = req.query.skipValue || 0;
+    const result = await Restaurant.findById(req.params.id)
+      .populate("restaurantFoods", "name category description story")
+      .limit(limitValue)
+      .skip(skipValue);
 
     if (!result) {
       return res.status(404).json({

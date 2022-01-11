@@ -4,7 +4,9 @@ const Restaurant = require("./../models/restaurantModel");
 exports.getAllFoods = async (req, res) => {
   res.set("Access-Control-Allow-Origin", "*");
   try {
-    const result = await foodModel.find();
+    const limitValue = req.query.limitValue || 20;
+    const skipValue = req.query.skipValue || 0;
+    const result = await foodModel.find().limit(limitValue).skip(skipValue);
     res.status(200).json({
       status: "success",
       data: result,
@@ -46,7 +48,12 @@ exports.getFoodbyCategory = async (req, res) => {
   res.set("Access-Control-Allow-Origin", "*");
   try {
     const { category } = req.body;
-    const result = await foodModel.find({ category });
+    const limitValue = req.query.limitValue || 20;
+    const skipValue = req.query.skipValue || 0;
+    const result = await foodModel
+      .find({ category })
+      .limit(limitValue)
+      .skip(skipValue);
 
     if (result.length > 0) {
       return res.status(200).json({
