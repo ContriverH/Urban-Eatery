@@ -41,7 +41,7 @@ export default function PaymentForm({ grandTotal }) {
         const response = await axios.post(
           "https://urban-eatery.herokuapp.com/payment",
           {
-            amount: { grandTotal },
+            amount: grandTotal,
             id,
           }
         );
