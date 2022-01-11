@@ -23,7 +23,7 @@ const CARD_OPTIONS = {
   },
 };
 
-export default function PaymentForm() {
+export default function PaymentForm({ grandTotal }) {
   const [success, setSuccess] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
@@ -41,7 +41,7 @@ export default function PaymentForm() {
         const response = await axios.post(
           "https://urban-eatery.herokuapp.com/payment",
           {
-            amount: 1000,
+            amount: { grandTotal },
             id,
           }
         );

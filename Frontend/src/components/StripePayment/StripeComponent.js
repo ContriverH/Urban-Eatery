@@ -10,7 +10,7 @@ export default function StripeComponent(props) {
       {showItem ? (
         <>
           <h2>Your card Details</h2>
-          <StripeContainer />
+          <StripeContainer grandTotal={props.grandTotal} />
         </>
       ) : (
         <>
