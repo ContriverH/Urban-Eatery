@@ -54,14 +54,11 @@ REACT_APP_BASE_URL = "83Rvm1KbI2RniLFxI8VZM56Zrou2";
 
 [https://foodie-eb5cd.web.app/](https://foodie-eb5cd.web.app/)
 
-# Contributors ( Group Number 3 )
+# Contributors
 
-| Name                | Roll Number  |
-| ------------------- | ------------ |
-| Himanshu Pal        | S20190010064 |
-| Nishchay Verma      | S20190010128 |
-| Yash Shukla         | S20190010198 |
-| Abhishek Jain       | S20190010003 |
-| Praveen Kumar Reddy | S20190010149 |
+| Name           | Roll Number  |
+| -------------- | ------------ |
+| Himanshu Pal   | S20190010064 |
+| Nishchay Verma | S20190010128 |
 
-                                                Copyright © 2022 Urban Eatery. Proudly created with ❤️
+                                        Copyright © 2022 Urban Eatery. Proudly created with ❤️
