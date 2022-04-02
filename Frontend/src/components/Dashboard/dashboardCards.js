@@ -2,7 +2,6 @@ import axios from "axios";
 import firebase from "firebase";
 import React, { useEffect, useState } from "react";
 import "./dashboardCard.css";
-
 export default function DashBoardCards() {
   const config = {
     headers: {

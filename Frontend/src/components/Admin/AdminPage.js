@@ -13,9 +13,9 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 export default function AdminPage() {
   const [currentComponent, setcurrentComponent] = useState("Dashboard");
-  const [food, setfood] = useState(); 
+  const [food, setfood] = useState();
   // const [orders, setorders] = useState();
- const [restaurant, setrestaurant] = useState(); 
+  const [restaurant, setrestaurant] = useState();
 
   return (
     <div>
@@ -148,19 +148,51 @@ export default function AdminPage() {
           </div>
 
           {currentComponent === "Restaurant" ? (
-            <RestaurantAdminList setcurrentComponent={setcurrentComponent} setrestaurant={setrestaurant} />
+            <RestaurantAdminList
+              setcurrentComponent={setcurrentComponent}
+              setrestaurant={setrestaurant}
+            />
           ) : (
             <div />
           )}
 
-          {currentComponent === "Add Restaurant" ? <RestaurantForm setcurrentComponent={setcurrentComponent} restaurant={restaurant} /> : <div />}
+          {currentComponent === "Add Restaurant" ? (
+            <RestaurantForm
+              setcurrentComponent={setcurrentComponent}
+              restaurant={restaurant}
+            />
+          ) : (
+            <div />
+          )}
 
-          {currentComponent === "Products" ? <ProductAdminList setcurrentComponent={setcurrentComponent} setfood={setfood} /> : <div />}
+          {currentComponent === "Products" ? (
+            <ProductAdminList
+              setcurrentComponent={setcurrentComponent}
+              setfood={setfood}
+            />
+          ) : (
+            <div />
+          )}
 
-          {currentComponent === "Add Products" ? <ProductForm setcurrentComponent={setcurrentComponent} food={food} /> : <div />}
+          {currentComponent === "Add Products" ? (
+            <ProductForm
+              setcurrentComponent={setcurrentComponent}
+              food={food}
+            />
+          ) : (
+            <div />
+          )}
 
-          {currentComponent == "Dashboard" ? <Dashboard setcurrentComponent={setcurrentComponent} /> : <div />}
-          {currentComponent === "Orders" ? <OrdersList setcurrentComponent={setcurrentComponent} /> : <div />}
+          {currentComponent == "Dashboard" ? (
+            <Dashboard setcurrentComponent={setcurrentComponent} />
+          ) : (
+            <div />
+          )}
+          {currentComponent === "Orders" ? (
+            <OrdersList setcurrentComponent={setcurrentComponent} />
+          ) : (
+            <div />
+          )}
 
           {/* <ProductForm/> */}
         </div>

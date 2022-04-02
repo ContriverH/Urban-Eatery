@@ -22,23 +22,8 @@ import Admin from "./components/Admin/AdminPage";
 import { AdminRoute } from "./components/SignUp/useAuth";
 function App() {
   const [cart, setCart] = useState([]);
+
   const [grandTotal, setGrandTotal] = useState(0);
-
-  function paymentHandler(amount) {
-    setGrandTotal(amount);
-  }
-
-  const cartHandler = (currentFood) => {
-    const alreadyAdded = cart.find((item) => item.id === currentFood.id);
-
-    if (alreadyAdded) {
-      const reamingCarts = cart.filter((item) => cart.id !== currentFood);
-      setCart(reamingCarts);
-    } else {
-      const newCart = [...cart, currentFood];
-      setCart(newCart);
-    }
-  };
 
   const [deliveryDetails, setDeliveryDetails] = useState({
     toDoor: "Delivery To Door",
@@ -53,12 +38,33 @@ function App() {
     timestamp: null,
   });
 
+  function paymentHandler(amount) {
+    setGrandTotal(amount);
+  }
+
   const setorderDetailsHandler = (data) => {
     setorderDetails(data);
   };
 
   const deliveryDetailsHandler = (data) => {
     setDeliveryDetails(data);
+  };
+
+  const cartHandler = (currentFood) => {
+    const alreadyAdded = cart.find((item) => item.id === currentFood.id);
+
+    const updatedCart = cart.filter(
+      (item) => item.restaurant === currentFood.restaurant
+    );
+
+    if (alreadyAdded) {
+      console.log("Do nothing");
+    } else {
+      console.log("cart handler");
+      const newCart = [...updatedCart, currentFood];
+      console.log(newCart);
+      setCart(newCart);
+    }
   };
 
   const checkOutItemHandler = (foodID, foodQuantity) => {
@@ -154,9 +160,9 @@ function App() {
             <StripeComponent grandTotal={grandTotal} />
           </PrivateRoute>
 
-          <AdminRoute path="/admin">
+          <PrivateRoute path="/admin">
             <Admin />
-          </AdminRoute>
+          </PrivateRoute>
 
           <Route path="*">
             <NotFound />
