@@ -24,6 +24,7 @@ const FoodDetails = (props) => {
 
   const [quantity, setQuantity] = useState(1);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isMore, setIsMore] = useState(false);
 
   useEffect(() => {
     if (currentFood.quantity) {
@@ -32,11 +33,23 @@ const FoodDetails = (props) => {
   }, [currentFood.quantity]);
 
   const finalCartHandler = (currentFood) => {
-    currentFood.quantity = quantity;
-
-    props.cartHandler(currentFood);
-    setIsSuccess(true);
+    const availableQty = parseInt(currentFood.qty);
+    console.log(currentFood);
+    console.log("available food: " + availableQty);
+    if (quantity > availableQty) {
+      setIsMore(true);
+    } else {
+      setIsSuccess(true);
+      setQuantity(quantity + 1);
+      currentFood.quantity = quantity;
+      props.cartHandler(currentFood);
+    }
   };
+
+  // message for more items added to the cart
+  if (isMore) {
+    setTimeout(() => setIsMore(false), 4500);
+  }
 
   // for showing that the food item is successfully added to the cart
   if (isSuccess) {
@@ -87,12 +100,19 @@ const FoodDetails = (props) => {
             <div className="cart-controller ml-3 btn">
               <button
                 className="btn"
-                onClick={() => setQuantity(quantity <= 1 ? 1 : quantity - 1)}
+                onClick={() => {
+                  setQuantity(quantity <= 1 ? 1 : quantity - 1);
+                }}
               >
                 -
               </button>
               {quantity}
-              <button className="btn" onClick={() => setQuantity(quantity + 1)}>
+              <button
+                className="btn"
+                onClick={() => {
+                  setQuantity(quantity + 1);
+                }}
+              >
                 +
               </button>
             </div>
@@ -109,6 +129,12 @@ const FoodDetails = (props) => {
             {isSuccess && (
               <p className="ml-3 success-mgs text-success">
                 <FontAwesomeIcon icon={faCheckCircle} /> Item added to Cart
+              </p>
+            )}
+            {isMore && (
+              <p className="ml-3 fail-mgs text-danger">
+                <FontAwesomeIcon icon={faCheckCircle} /> You have selected more
+                items than are in the cart
               </p>
             )}
           </div>

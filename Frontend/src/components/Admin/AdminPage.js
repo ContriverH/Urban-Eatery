@@ -1,6 +1,6 @@
 import React from "react";
 import ProductForm from "../Form/ProductForm";
-import RestaurantForm from "../Form/restaurentForm";
+import RestaurantForm from "../Form/RestaurantForm";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./admin.css";

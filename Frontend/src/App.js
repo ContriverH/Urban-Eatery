@@ -57,9 +57,7 @@ function App() {
       (item) => item.restaurant === currentFood.restaurant
     );
 
-    if (alreadyAdded) {
-      console.log("Do nothing");
-    } else {
+    if (!alreadyAdded) {
       console.log("cart handler");
       const newCart = [...updatedCart, currentFood];
       console.log(newCart);

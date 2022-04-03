@@ -94,8 +94,9 @@ export default function RestaurantAdminList(props) {
       "Content-Type": "application/json",
     },
   };
-  const baseurl =
-    "https://urban-eatery.herokuapp.com/api/v1/restaurant/getAllRestaurant";
+  // const baseurl =
+  //   "https://urban-eatery.herokuapp.com/api/v1/restaurant/getAllRestaurant";
+  const baseurl = "http://localhost:3001/api/v1/restaurant/getAllRestaurant";
   const [list, setlist] = useState([]);
   useEffect(() => {
     console.log("started searching");

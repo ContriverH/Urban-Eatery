@@ -88,7 +88,7 @@ const Shipment = (props) => {
           orderID: docRef.id,
         });
 
-        console.log("Tutorial created with ID: ", docRef.id);
+        // console.log("Tutorial created with ID: ", docRef.id);
       })
       .catch(function (error) {
         console.error("Error adding Tutorial: ", error);
