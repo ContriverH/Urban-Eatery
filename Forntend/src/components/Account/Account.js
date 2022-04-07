@@ -8,8 +8,11 @@ import { faTruck, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { useAuth } from "../SignUp/useAuth";
 
 export default function Account(props) {
-  const { user } = useAuth();
-  console.log(user);
+  // const { user } = useAuth();
+  // console.log(user);
+  // console.log(localStorage.getItem("UserData_foodie"));
+  // const { name } = ;
+  // console.log(name);
 
   return (
     <>
@@ -21,7 +24,7 @@ export default function Account(props) {
               <div class="media align-items-end profile-header">
                 <div class="profile mr-3">
                   <img
-                    src={user.picture}
+                    // src={user.picture}
                     alt="..."
                     width="130"
                     class="rounded mb-2 img-thumbnail"
@@ -35,7 +38,7 @@ export default function Account(props) {
                 </div>
                 <div class="media-body mb-5 text-white">
                   <h4 class="mt-0 mb-0">
-                    {user.name}
+                    {localStorage.getItem("UserData_foodie")}
                     {/* {uid === process.env.REACT_APP_BASE_URL ? ( */}
                     {/* "(admin)"
                     ) : (
@@ -45,7 +48,7 @@ export default function Account(props) {
                   <p class="small mb-4">
                     {" "}
                     <i class="fa fa-map-marker mr-2"></i>
-                    {user.email}
+                    {/* {user.email} */}
                   </p>
                 </div>
               </div>

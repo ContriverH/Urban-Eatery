@@ -233,20 +233,6 @@ exports.getLoggedUserInfo = async (req, res) => {
   });
 };
 
-// const multerFilter = (req, file, cb) => {
-//     if (file.mimetype.startsWith('image') || file.mimetype.startsWith('video')) {
-//         cb(null, true);
-//     } else {
-//         cb(
-//             new AppError(
-//                 'Neither an image nor a video! Please upload images or video.',
-//                 400
-//             ),
-//             false
-//         );
-//     }
-// };
-
 exports.uploadImage = async (req, res) => {
   try {
     const file = req.file;

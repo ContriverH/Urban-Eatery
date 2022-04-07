@@ -84,7 +84,7 @@ const Auth = () => {
           console.log(response);
           if (response.data.statusCode === 200) {
             localStorage.setItem("authToken_foodie", response.data.token);
-            localStorage.setItem("UserData_foodie", response.data.data);
+            localStorage.setItem("UserData_foodie", response.data.data.name);
             localStorage.setItem("role_foodie", response.data.data.role);
             console.log(response.data.data.role);
             setUser({ name: response.data.name, token: response.data.token });
