@@ -7,10 +7,12 @@ const foodSchema = new mongoose.Schema({
   description: String,
   story: String,
   price: Number,
+  restaurant_name: String,
   restaurant: {
     type: mongoose.Schema.ObjectId,
     ref: "Restaurant",
   },
+  qty: Number,
 });
 
 const Food = mongoose.model("Food", foodSchema, "Food Model");
