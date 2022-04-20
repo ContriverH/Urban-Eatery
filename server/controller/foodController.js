@@ -1,3 +1,5 @@
+const { search } = require('../routes/foodRoute');
+const Food = require('./../models/foodModel');
 const foodModel = require('./../models/foodModel');
 const Restaurant = require('./../models/restaurantModel');
 
@@ -151,6 +153,39 @@ exports.deleteItem = async (req, res) => {
     });
   }
 };
+
+exports.searchFood = async (req, res) => {
+  try {
+    const { keyword } = req.params;
+    const foods = await foodModel.find({
+      $or: [
+        { category: { $regex: keyword } }, {
+          name: { $regex: keyword }
+        },
+        {
+          restaurant_name: { $regex: keyword }
+        }
+      ]
+    })
+    if (!foods) {
+      return res.status(400).json({
+        status: 'fail',
+        message: 'no such food'
+      })
+    }
+    res.status(200).json({
+      status: 'success',
+      data: foods
+    })
+
+  }
+  catch (err) {
+    return res.status(400).json({
+      status: 'fail',
+      message: err.message
+    })
+  }
+}
 
 exports.mapFoodRestaurant = async (req, res) => {
   try {
