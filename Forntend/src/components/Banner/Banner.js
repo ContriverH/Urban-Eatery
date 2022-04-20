@@ -29,7 +29,6 @@ const Banner = () => {
         }
     }
 
-
     return (
         <>
             <section className='banner d-flex align-items-center text-center'>
