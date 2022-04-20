@@ -110,7 +110,7 @@ function App() {
           <Route path="/search=:searchQuery">
             <Header cart={cart} />
             <Banner />
-            <SearchResult />
+            {/* <SearchResult /> */}
             <Blog />
             <Footer />
           </Route>
@@ -126,7 +126,7 @@ function App() {
               checkOutItemHandler={checkOutItemHandler}
               clearCart={clearCart}
               paymentHandler={paymentHandler}
-              // restaurant={restaurant}
+            // restaurant={restaurant}
             />
             <Footer />
           </Route>
