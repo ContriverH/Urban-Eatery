@@ -45,5 +45,6 @@ npm start
 | -------------- | ------------ |
 | Himanshu Pal   | S20190010064 |
 | Nishchay Verma | S20190010128 |
+| Abhishek Jain  | S20190010003 |
 
                                         Copyright © 2022 Urban Eatery. Proudly created with ❤️

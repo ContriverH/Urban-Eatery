@@ -60,5 +60,6 @@ REACT_APP_BASE_URL = "83Rvm1KbI2RniLFxI8VZM56Zrou2";
 | -------------- | ------------ |
 | Himanshu Pal   | S20190010064 |
 | Nishchay Verma | S20190010128 |
+| Abhishek Jain  | S20190010003 |
 
                                         Copyright © 2022 Urban Eatery. Proudly created with ❤️
